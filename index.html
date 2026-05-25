@@ -1,0 +1,208 @@
+# Correção Estrutural do Projeto `todo-recoil`
+
+## 1. Estrutura correta do projeto
+
+A estrutura final deve ficar assim:
+
+```bash
+todo-recoil/
+├── public/
+├── src/
+│   ├── atoms/
+│   ├── components/
+│   ├── selectors/
+│   ├── App.jsx
+│   ├── main.jsx
+│   └── index.css
+├── index.html
+├── package.json
+├── vite.config.js
+└── node_modules/
+```
+
+---
+
+# 2. Restaurar ou criar o `index.html`
+
+Crie o arquivo `index.html` na raiz do projeto:
+
+```html
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ToDo Recoil</title>
+  </head>
+
+  <body>
+    <div id="root"></div>
+
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
+```
+
+Confirme que existe esta linha:
+
+```html
+<script type="module" src="/src/main.jsx"></script>
+```
+
+---
+
+# 3. Mover a pasta `public/src`
+
+Se o projeto estiver assim:
+
+```bash
+public/
+└── src/
+```
+
+Mova a pasta `src` para a raiz do projeto:
+
+```bash
+mv public/src ./src
+```
+
+Depois disso, a pasta `public` deve ficar vazia ou conter apenas arquivos estáticos.
+
+---
+
+# 4. Instalar dependências
+
+Abra o terminal na raiz do projeto e execute:
+
+```bash
+npm install
+```
+
+Isso irá instalar:
+
+* React
+* React DOM
+* Recoil
+* Vite
+* Dependências do projeto
+
+---
+
+# 5. Validar compilação
+
+Execute:
+
+```bash
+npm run build
+```
+
+Resultado esperado:
+
+```bash
+✓ built in ...
+```
+
+Se aparecer erro relacionado a:
+
+* caminhos de import
+* arquivos inexistentes
+* imports incorretos
+
+verifique:
+
+* se `src/main.jsx` existe
+* se `App.jsx` está dentro de `src`
+* se os imports usam caminhos corretos
+
+Exemplo correto:
+
+```jsx
+import App from './App'
+```
+
+---
+
+# 6. Executar aplicação
+
+Rode:
+
+```bash
+npm run dev
+```
+
+O Vite mostrará algo parecido com:
+
+```bash
+Local: http://localhost:5173/
+```
+
+Abra no navegador.
+
+---
+
+# 7. Teste das funcionalidades
+
+## ✅ Adicionar tarefa
+
+1. Digite uma tarefa.
+2. Clique em "Adicionar".
+3. A tarefa deve aparecer na lista.
+
+---
+
+## ✅ Listar tarefas
+
+Todas as tarefas adicionadas devem aparecer na tela.
+
+---
+
+## ✅ Concluir tarefa
+
+1. Clique em "Concluir".
+2. A tarefa deve ficar riscada.
+
+---
+
+## ✅ Remover tarefa
+
+1. Clique em "Remover".
+2. A tarefa deve desaparecer da lista.
+
+---
+
+## ✅ Filtrar tarefas
+
+### Todas
+
+Mostra todas as tarefas.
+
+### Concluídas
+
+Mostra apenas tarefas concluídas.
+
+### Pendentes
+
+Mostra apenas tarefas não concluídas.
+
+---
+
+# 8. Resultado esperado
+
+A aplicação deve:
+
+* Compilar sem erros
+* Adicionar tarefas
+* Atualizar estado global com Recoil
+* Filtrar corretamente
+* Remover tarefas
+* Persistir o fluxo corretamente na interface
+
+---
+
+# 9. Comandos finais
+
+```bash
+npm install
+npm run build
+npm run dev
+```
